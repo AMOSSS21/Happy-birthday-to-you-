@@ -2,231 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday</title>
-
+<title>Happy Birthday My Love</title>
 <style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8bfc9;
-    overflow-y: auto;
-}
+    /* GLOBAL STYLES */
+    body, html {
+        margin: 0; padding: 0; height: 100%; width: 100%;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f8bfc9; /* Same Pink Background */
+        overflow: hidden; color: #333;
+    }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-}
+    /* PAGE SYSTEM */
+    .page {
+        position: absolute; width: 100%; height: 100%;
+        display: none; flex-direction: column;
+        align-items: center; justify-content: center;
+        text-align: center; padding: 20px; box-sizing: border-box;
+    }
+    .active { display: flex; }
 
-/* Top Floating Text */
-.top-text {
-    font-size: 36px;
-    color: #c2185b;
-    margin-bottom: 25px;
-    animation: float 2.5s ease-in-out infinite;
-}
+    /* HEART RAIN EFFECT */
+    .heart-drop {
+        position: absolute; color: #ff4d6d;
+        font-size: 20px; user-select: none;
+        pointer-events: none; animation: fall linear forwards;
+    }
+    @keyframes fall { to { transform: translateY(110vh); } }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-}
+    /* PAGE 1 SPECIFIC: BIG HEART */
+    .big-heart {
+        font-size: 120px; color: #e91e63;
+        animation: pulse 1.5s infinite; margin-bottom: 20px;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
 
-/* Cake */
-.cake {
-    position: relative;
-    margin: 20px 0 35px;
-}
-
-.layer {
-    background: #6d4c41;
-    border-radius: 8px;
-    margin: 3px auto;
-    position: relative;
-}
-
-.layer1 { width: 120px; height: 40px; }
-.layer2 { width: 100px; height: 35px; }
-.layer3 { width: 80px; height: 30px; }
-
-.icing {
-    position: absolute;
-    top: -8px;
-    width: 100%;
-    height: 15px;
-    background: white;
-    border-radius: 8px;
-}
-
-/* Candles */
-.candle {
-    width: 10px;
-    height: 35px;
-    background: white;
-    position: absolute;
-    border-radius: 3px;
-}
-
-.flame {
-    width: 12px;
-    height: 18px;
-    background: gold;
-    border-radius: 50%;
-    position: absolute;
-    top: -18px;
-    left: -1px;
-    animation: flicker 0.2s infinite alternate;
-}
-
-@keyframes flicker {
-    from { transform: scale(1); opacity: 0.85; }
-    to { transform: scale(1.15); opacity: 1; }
-}
-
-/* Balloon */
-.balloon {
-    position: absolute;
-    width: 35px;
-    height: 45px;
-    background: white;
-    border-radius: 50%;
-    animation: balloonFloat 4s ease-in-out infinite;
-}
-
-.balloon::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 35px;
-    background: rgba(0,0,0,0.2);
-    left: 50%;
-    top: 45px;
-}
-
-.left-balloon { left: 20px; top: 100px; }
-.right-balloon { right: 20px; top: 100px; }
-
-@keyframes balloonFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-/* Message */
-.message-title {
-    font-size: 20px;
-    color: #c2185b;
-    margin: 15px 0;
-    font-weight: 600;
-}
-
-.message {
-    max-width: 720px;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-    padding: 0 15px 50px 15px;
-}
-
-/* Confetti */
-.confetti {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    opacity: 0.8;
-    animation: fall linear infinite;
-}
-
-@keyframes fall {
-    from { transform: translateY(-20px); }
-    to { transform: translateY(110vh); }
-}
+    .btn {
+        margin-top: 30px; padding: 12px 30px;
+        background-color: #c2185b; color: white;
+        border: none; border-radius: 25px; cursor: pointer;
+        font-size: 1rem; z-index: 100;
+    }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-
-    <div class="top-text">Happy Birthday</div>
-
-    <!-- Balloons -->
-    <div class="balloon left-balloon"></div>
-    <div class="balloon right-balloon"></div>
-
-    <!-- Cake -->
-    <div class="cake">
-        <!-- Top candle -->
-        <div class="candle" style="top: -60px; left: 50%; transform: translateX(-50%);">
-            <div class="flame"></div>
-        </div>
-
-        <div class="layer layer3">
-            <div class="icing"></div>
-        </div>
-        <div class="layer layer2">
-            <div class="icing"></div>
-        </div>
-        <div class="layer layer1">
-            <div class="icing"></div>
-
-            <!-- Layer candles -->
-            <div class="candle" style="left: 20px; top: -38px;">
-                <div class="flame"></div>
-            </div>
-            <div class="candle" style="left: 50px; top: -38px;">
-                <div class="flame"></div>
-            </div>
-            <div class="candle" style="left: 80px; top: -38px;">
-                <div class="flame"></div>
-            </div>
-
-        </div>
+    <div id="page1" class="page active">
+        <div class="big-heart">❤️</div>
+        <h1 style="color: #c2185b;">Happy Birthday to you, my love!</h1>
+        <p style="font-style: italic; max-width: 80%;">
+            Today is a special day, and I wanted to make something just for you. 
+            You mean the world to me.
+        </p>
+        <button class="btn" onclick="nextPage(2)">Click to see your cake 🎂</button>
     </div>
 
-    <div class="message-title">Happy Birthday to you ❤️</div>
+    <script>
+        function nextPage(num) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + num).classList.add('active');
+        }
 
-    <div class="message">
-Honestly, I don’t even know where to start because putting into words how I feel about you never feels like enough. 
-You’ve become someone so incredibly special to me, more than you probably realize. The way you exist in my life, 
-your presence, your energy, your smile, even the smallest moments we share, they all mean so much to me.<br><br>
-
-You’re not just important to me. You’re someone who has quietly become a part of my days, my thoughts, my happiness. 
-Someone who can change my mood without even trying. And I genuinely mean this, I love you. Not in some loud, dramatic way, 
-but in that real, steady, sincere way where you just deeply care about someone and want the best for them always.<br><br>
-
-On your special day, I just want you to know how much you matter to me. How much I appreciate you. How much I care about you. 
-No matter what happens, I’ll always have a soft corner for you, always support you, always be someone who stands by you. 
-Because that’s what you deserve.<br><br>
-
-I hope this year brings you everything, happiness, peace, success, beautiful moments, and everything your heart wishes for. 
-And selfishly, I hope I get to keep being part of your smiles, your laughs, your world.<br><br>
-
-Happy Birthday once again 😌❤️  
-Stay amazing. Stay you.  
-And just never forget how loved you are.
-    </div>
-
-</div>
-
-<script>
-// Confetti
-for (let i = 0; i < 90; i++) {
-    let confetti = document.createElement("div");
-    confetti.classList.add("confetti");
-
-    confetti.style.left = Math.random() * window.innerWidth + "px";
-    confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-    confetti.style.opacity = Math.random();
-
-    document.body.appendChild(confetti);
-}
-</script>
-
-</body>
-</html>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-drop');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
