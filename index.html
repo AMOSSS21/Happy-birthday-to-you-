@@ -5,257 +5,60 @@
 <title>Happy Birthday My Love ❤️</title>
 <style>
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    margin: 0; padding: 0; height: 100%;
     font-family: 'Segoe UI', sans-serif;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-.page {
-    height: 100vh;
-    width: 100%;
     background: #f8bfc9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
     overflow: hidden;
+    text-align: center;
 }
-
-/* Common Heart Animation */
+.big-heart {
+    width: 300px; height: 300px; background: #e91e63;
+    position: relative; transform: rotate(45deg); margin: 50px auto;
+}
+.big-heart::before, .big-heart::after {
+    content: ""; position: absolute; width: 300px; height: 300px;
+    background: #e91e63; border-radius: 50%;
+}
+.big-heart::before { top: -150px; left: 0; }
+.big-heart::after { left: -150px; top: 0; }
+.page-text {
+    color: white; font-size: 28px; font-weight: 600; max-width: 600px; margin: 20px auto;
+}
 .heart {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background: red;
-    transform: rotate(45deg);
+    position: absolute; width: 25px; height: 25px; background: red; transform: rotate(45deg);
     animation: floatHeart 3s linear infinite;
 }
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background: red;
-    border-radius: 50%;
+.heart::before, .heart::after {
+    content: ""; position: absolute; width: 25px; height: 25px; background: red; border-radius: 50%;
 }
 .heart::before { top: -12.5px; left: 0; }
 .heart::after { left: 12.5px; top: 0; }
-
 @keyframes floatHeart {
     0% { transform: translateY(0) rotate(45deg); opacity: 1; }
     100% { transform: translateY(-600px) rotate(45deg); opacity: 0; }
 }
-
-/* Big Heart Center */
-.big-heart {
-    width: 250px;
-    height: 250px;
-    background: #e91e63;
-    position: relative;
-    transform: rotate(45deg);
-    margin-bottom: 20px;
-}
-.big-heart::before,
-.big-heart::after {
-    content: "";
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: #e91e63;
-    border-radius: 50%;
-}
-.big-heart::before { top: -125px; left: 0; }
-.big-heart::after { left: -125px; top: 0; }
-
-/* Page Text */
-.page-text {
-    color: white;
-    font-size: 28px;
-    font-weight: 600;
-    z-index: 2;
-    max-width: 600px;
-}
-
-/* Cake */
-.cake {
-    position: relative;
-    margin: 20px 0 35px;
-    z-index: 2;
-}
-.layer {
-    background: #6d4c41;
-    border-radius: 8px;
-    margin: 3px auto;
-    position: relative;
-}
-.layer1 { width: 200px; height: 60px; }
-.layer2 { width: 160px; height: 50px; }
-.layer3 { width: 120px; height: 40px; }
-.icing {
-    position: absolute;
-    top: -8px;
-    width: 100%;
-    height: 15px;
-    background: white;
-    border-radius: 8px;
-}
-
-/* Candle */
-.candle {
-    width: 12px;
-    height: 40px;
-    background: white;
-    position: absolute;
-    border-radius: 3px;
-}
-.flame {
-    width: 14px;
-    height: 18px;
-    background: gold;
-    border-radius: 50%;
-    position: absolute;
-    top: -18px;
-    left: -1px;
-    animation: flicker 0.2s infinite alternate;
-}
-@keyframes flicker {
-    from { transform: scale(1); opacity: 0.85; }
-    to { transform: scale(1.15); opacity: 1; }
-}
-
-/* Cherry */
-.cherry {
-    width: 15px;
-    height: 15px;
-    background: #f44336;
-    border-radius: 50%;
-    position: absolute;
-}
-
-/* Falling Hearts for Page 2 */
-.falling-heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    transform: rotate(45deg);
-    animation: fall 3s linear infinite;
-}
-.falling-heart::before,
-.falling-heart::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    border-radius: 50%;
-}
-.falling-heart::before { top: -10px; left: 0; }
-.falling-heart::after { left: 10px; top: 0; }
-@keyframes fall {
-    0% { transform: translateY(-20px) rotate(45deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
-}
-
-/* Page 3 message */
-.message {
-    max-width: 700px;
-    font-size: 18px;
-    color: #c2185b;
-    line-height: 1.6;
-    padding: 0 15px;
-}
 </style>
 </head>
 <body>
-
-<!-- PAGE 1 -->
-<div class="page">
-    <!-- Raining hearts -->
-    <div id="page1-hearts"></div>
-
-    <div class="big-heart"></div>
-    <div class="page-text">
-        Happy Birthday to you my love! ❤️<br><br>
-        Today is your special day and I just want you to know how much you mean to me. 
-        You light up my world, my days, and my heart. May this year bring you endless joy, 
-        laughter, and love. 💖
-    </div>
-</div>
-
-<!-- PAGE 2 -->
-<div class="page">
-    <!-- Falling hearts -->
-    <div id="page2-hearts"></div>
-
-    <div class="cake">
-        <div class="layer layer3">
-            <div class="icing"></div>
-            <!-- Cherry toppings -->
-            <div class="cherry" style="top: -10px; left: 20px;"></div>
-            <div class="cherry" style="top: -10px; left: 70px;"></div>
-        </div>
-        <div class="layer layer2">
-            <div class="icing"></div>
-            <div class="cherry" style="top: -10px; left: 30px;"></div>
-            <div class="cherry" style="top: -10px; left: 80px;"></div>
-        </div>
-        <div class="layer layer1">
-            <div class="icing"></div>
-            <div class="cherry" style="top: -10px; left: 40px;"></div>
-            <div class="cherry" style="top: -10px; left: 120px;"></div>
-
-            <!-- Candles on top layer -->
-            <div class="candle" style="left: 50px; top: -50px;">
-                <div class="flame"></div>
-            </div>
-            <div class="candle" style="left: 90px; top: -50px;">
-                <div class="flame"></div>
-            </div>
-            <div class="candle" style="left: 130px; top: -50px;">
-                <div class="flame"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- PAGE 3 -->
-<div class="page">
-    <div class="message">
-        Honestly, I don’t even know where to start because putting into words how I feel about you never feels like enough. 
-        You’ve become someone so incredibly special to me, more than you probably realize.<br><br>
-
-        Thanks for always being there for me. I will always love you with all my heart and forever. ❤️
-    </div>
+<div id="hearts"></div>
+<div class="big-heart"></div>
+<div class="page-text">
+    Happy Birthday to you my love! ❤️<br><br>
+    Today is your special day, and I just want to tell you how deeply I care for you. 
+    You make my life brighter, my heart fuller, and my days happier. 
+    May this year bring you endless joy, laughter, and all the love you deserve. 💖
 </div>
 
 <script>
-// Page 1 hearts
-for(let i=0; i<50; i++){
-    let heart = document.createElement("div");
+// Raining hearts
+for(let i=0;i<50;i++){
+    let heart=document.createElement("div");
     heart.classList.add("heart");
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.top = Math.random() * window.innerHeight + "px";
-    heart.style.animationDuration = (Math.random()*3 + 2) + "s";
-    document.getElementById("page1-hearts").appendChild(heart);
-}
-
-// Page 2 falling hearts
-for(let i=0; i<50; i++){
-    let fheart = document.createElement("div");
-    fheart.classList.add("falling-heart");
-    fheart.style.left = Math.random() * window.innerWidth + "px";
-    fheart.style.top = Math.random() * window.innerHeight + "px";
-    fheart.style.animationDuration = (Math.random()*4 + 2) + "s";
-    document.getElementById("page2-hearts").appendChild(fheart);
+    heart.style.left=Math.random()*window.innerWidth+"px";
+    heart.style.top=Math.random()*window.innerHeight+"px";
+    heart.style.animationDuration=(Math.random()*3+2)+"s";
+    document.getElementById("hearts").appendChild(heart);
 }
 </script>
-
 </body>
 </html>
