@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,9 @@
 
 <style>
 html, body {
-    margin:0; padding:0; height:100%;
+    margin:0;
+    padding:0;
+    height:100%;
     font-family:'Segoe UI',sans-serif;
     background:#f8bfc9;
     text-align:center;
@@ -57,18 +59,28 @@ html, body {
 
 .cherry { width:15px; height:15px; background:#f44336; border-radius:50%; position:absolute; }
 
-.message { font-size:22px; color:#c2185b; font-weight:600; margin-top:20px; }
+.message {
+    font-size:20px;
+    color:#c2185b;
+    font-weight:600;
+    margin:20px auto 80px auto; /* extra bottom space so message doesn't overlap nav */
+    max-width:700px;
+    line-height:1.6;
+}
 
-/* Navigation Button */
+/* Navigation Buttons Fixed at Bottom */
 .nav {
+    position: fixed;
+    bottom: 20px;
     font-size: 18px;
     background: #c2185b;
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
-    margin: 20px 10px;
 }
+.nav.prev { left: 20px; }
+.nav.next { right: 20px; }
 </style>
 </head>
 
@@ -88,18 +100,19 @@ html, body {
 
 <!-- Sweet Birthday Message -->
 <div class="message">
-Happy Birthday to you ❤️<br>
+Happy Birthday to you ❤️<br><br>
 Wishing you endless happiness, perfect health, and a life as sweet and joyful as this cake.  
-Always stay as wonderful and special as you are!
+May every day bring you laughter, love, and all the little joys that make life beautiful.  
+Always stay as wonderful, kind, and special as you are, and may all your dreams come true.  
+You deserve nothing but the best, today and always! 🍰💖
 </div>
 
-<!-- Navigation -->
-<div>
-    <a class="nav prev" href="index.html">Prev ❤️</a>
-    <a class="nav next" href="page3.html">Next 💖</a>
-</div>
+<!-- Navigation Buttons -->
+<a class="nav prev" href="index.html">Prev ❤️</a>
+<a class="nav next" href="page3.html">Next 💖</a>
 
 <script>
+// Falling Hearts Animation
 for(let i=0;i<35;i++){
     let heart=document.createElement("div");
     heart.classList.add("falling-heart");
@@ -110,4 +123,4 @@ for(let i=0;i<35;i++){
 </script>
 
 </body>
-</html> 
+</html>
