@@ -1,81 +1,40 @@
 <div id="page2" class="page">
-    <h1 style="color: #c2185b; margin-top: 20px;">Make a Wish! 🎂</h1>
-    
-    <div class="cake-container" style="position: relative; margin-top: 80px; margin-bottom: 40px;">
+        <h1 style="color: #c2185b;">Make a Wish! 🎂</h1>
         
-        <div class="candles" style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10;">
-            <div class="candle-item">
-                <div class="flame"></div>
-                <div class="stick"></div>
+        <div class="cake-container" style="position: relative; margin-top: 60px;">
+            <div style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;">
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
             </div>
-            <div class="candle-item">
-                <div class="flame"></div>
-                <div class="stick"></div>
+
+            <div class="layer" style="width: 100px; height: 40px; background: #6d4c41; border-radius: 10px 10px 0 0; margin: 0 auto; position: relative;">
+                <div class="icing"></div>
+                <div class="cherry" style="left: 20%;"></div>
+                <div class="cherry" style="left: 80%;"></div>
             </div>
-            <div class="candle-item">
-                <div class="flame"></div>
-                <div class="stick"></div>
+            <div class="layer" style="width: 140px; height: 50px; background: #6d4c41; margin: 0 auto; position: relative;">
+                <div class="icing"></div>
+                <div class="cherry" style="left: 10%;"></div>
+                <div class="cherry" style="left: 50%;"></div>
+                <div class="cherry" style="left: 90%;"></div>
+            </div>
+            <div class="layer" style="width: 180px; height: 60px; background: #6d4c41; margin: 0 auto; position: relative; border-radius: 0 0 5px 5px;">
+                <div class="icing"></div>
+                <div class="cherry" style="left: 5%;"></div>
+                <div class="cherry" style="left: 30%;"></div>
+                <div class="cherry" style="left: 70%;"></div>
+                <div class="cherry" style="left: 95%;"></div>
             </div>
         </div>
 
-        <div class="layer layer3" style="width: 100px; height: 40px; background: #6d4c41; border-radius: 10px 10px 0 0; margin: 0 auto; position: relative; border-bottom: 2px solid rgba(0,0,0,0.1);">
-            <div class="icing" style="width: 100%; height: 15px; background: white; border-radius: 10px; position: absolute; top: 0;"></div>
-            <div class="cherry" style="left: 25%;"></div>
-            <div class="cherry" style="left: 75%;"></div>
-        </div>
-
-        <div class="layer layer2" style="width: 140px; height: 50px; background: #6d4c41; border-radius: 5px; margin: 0 auto; position: relative; border-bottom: 2px solid rgba(0,0,0,0.1);">
-            <div class="icing" style="width: 100%; height: 18px; background: white; border-radius: 5px; position: absolute; top: 0;"></div>
-            <div class="cherry" style="left: 15%;"></div>
-            <div class="cherry" style="left: 50%;"></div>
-            <div class="cherry" style="left: 85%;"></div>
-        </div>
-
-        <div class="layer layer1" style="width: 180px; height: 60px; background: #6d4c41; border-radius: 5px; margin: 0 auto; position: relative;">
-            <div class="icing" style="width: 100%; height: 20px; background: white; border-radius: 5px; position: absolute; top: 0;"></div>
-            <div class="cherry" style="left: 10%;"></div>
-            <div class="cherry" style="left: 35%;"></div>
-            <div class="cherry" style="left: 65%;"></div>
-            <div class="cherry" style="left: 90%;"></div>
-        </div>
+        <button class="btn" onclick="nextPage(3)">Read My Letter 💌</button>
     </div>
 
-    <p style="font-style: italic; color: #c2185b; font-weight: bold;">To the sweetest person in the world...</p>
-    
-    <button class="btn" onclick="nextPage(3)">Open My Letter 💌</button>
-</div>
-
-<style>
-    /* Styling for the details like cherries and flames */
-    .cherry {
-        width: 12px;
-        height: 12px;
-        background: #d32f2f;
-        border-radius: 50%;
-        position: absolute;
-        top: -6px;
-        box-shadow: inset -2px -2px 2px rgba(0,0,0,0.2);
-    }
-
-    .stick {
-        width: 8px;
-        height: 35px;
-        background: #fff;
-        border-radius: 2px;
-    }
-
-    .flame {
-        width: 12px;
-        height: 18px;
-        background: gold;
-        border-radius: 50% 50% 20% 20%;
-        margin: 0 auto -5px auto;
-        animation: flicker 0.3s infinite alternate;
-        box-shadow: 0 0 10px orange;
-    }
-
-    @keyframes flicker {
-        from { transform: scale(1); opacity: 0.8; }
-        to { transform: scale(1.2); opacity: 1; }
-    }
-</style>
+    <style>
+        .icing { position: absolute; top: 0; width: 100%; height: 15px; background: white; border-radius: 5px; }
+        .cherry { width: 10px; height: 10px; background: #d32f2f; border-radius: 50%; position: absolute; top: -5px; }
+        .candle { width: 8px; height: 35px; background: white; position: relative; }
+        .flame { width: 10px; height: 15px; background: gold; border-radius: 50%; position: absolute; top: -15px; animation: flicker 0.2s infinite alternate; }
+        @keyframes flicker { from { opacity: 0.8; transform: scale(1); } to { opacity: 1; transform: scale(1.1); } }
+    </style>
