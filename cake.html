@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cake 🎂</title>
+
+<style>
+body {
+    margin: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+}
+
+.layer {
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.layer1 { background: #ffb6c1; }
+.layer2 { background: #ff69b4; }
+.layer3 { background: #ff1493; }
+
+.cherry {
+    width: 15px;
+    height: 15px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+}
+
+.cherry:nth-child(1) { left: 20px; }
+.cherry:nth-child(2) { left: 90px; }
+.cherry:nth-child(3) { left: 160px; }
+
+button {
+    margin-top: 40px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div>
+    <h1>Your Cake 🎂</h1>
+
+    <div class="cake">
+        <div class="cherry"></div>
+        <div class="cherry"></div>
+        <div class="cherry"></div>
+
+        <div class="layer layer1"></div>
+        <div class="layer layer2"></div>
+        <div class="layer layer3"></div>
+    </div>
+
+    <button onclick="location.href='message.html'">
+        Read My Message ❤️
+    </button>
+</div>
+
+</body>
+</html>
