@@ -1,81 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Cake 🎂</title>
+<div id="page2" class="page">
+        <h1 style="color: #c2185b;">Make a Wish!</h1>
+        
+        <div class="cake" style="position: relative; margin-top: 60px;">
+            <div style="position: absolute; top: -30px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px;">
+                <div class="candle" style="width: 8px; height: 30px; background: white; position: relative;">
+                    <div class="flame" style="width: 10px; height: 15px; background: gold; border-radius: 50%; position: absolute; top: -15px; animation: flicker 0.2s infinite alternate;"></div>
+                </div>
+                <div class="candle" style="width: 8px; height: 30px; background: white; position: relative;">
+                    <div class="flame" style="width: 10px; height: 15px; background: gold; border-radius: 50%; position: absolute; top: -15px; animation: flicker 0.2s infinite alternate;"></div>
+                </div>
+                <div class="candle" style="width: 8px; height: 30px; background: white; position: relative;">
+                    <div class="flame" style="width: 10px; height: 15px; background: gold; border-radius: 50%; position: absolute; top: -15px; animation: flicker 0.2s infinite alternate;"></div>
+                </div>
+            </div>
 
-<style>
-body {
-    margin: 0;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: white;
-    font-family: Arial;
-    text-align: center;
-}
+            <div class="layer" style="width: 100px; height: 40px; background: #6d4c41; border-radius: 10px 10px 0 0; margin: 0 auto; position: relative;">
+                <div style="width: 100%; height: 15px; background: white; border-radius: 10px;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 20%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 70%;"></div>
+            </div>
+            <div class="layer" style="width: 140px; height: 50px; background: #6d4c41; border-radius: 5px; margin: 0 auto; position: relative;">
+                <div style="width: 100%; height: 15px; background: white; border-radius: 5px;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 10%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 45%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 85%;"></div>
+            </div>
+            <div class="layer" style="width: 180px; height: 60px; background: #6d4c41; border-radius: 5px; margin: 0 auto; position: relative;">
+                <div style="width: 100%; height: 15px; background: white; border-radius: 5px;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 5%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 30%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 60%;"></div>
+                <div class="cherry" style="width: 10px; height: 10px; background: red; border-radius: 50%; position: absolute; top: -5px; left: 90%;"></div>
+            </div>
+        </div>
 
-.cake {
-    position: relative;
-    width: 200px;
-}
-
-.layer {
-    height: 50px;
-    border-radius: 10px;
-    margin: 5px 0;
-}
-
-.layer1 { background: #ffb6c1; }
-.layer2 { background: #ff69b4; }
-.layer3 { background: #ff1493; }
-
-.cherry {
-    width: 15px;
-    height: 15px;
-    background: red;
-    border-radius: 50%;
-    position: absolute;
-    top: -10px;
-}
-
-.cherry:nth-child(1) { left: 20px; }
-.cherry:nth-child(2) { left: 90px; }
-.cherry:nth-child(3) { left: 160px; }
-
-button {
-    margin-top: 40px;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    background: white;
-    color: black;
-    font-size: 16px;
-    cursor: pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div>
-    <h1>Your Cake 🎂</h1>
-
-    <div class="cake">
-        <div class="cherry"></div>
-        <div class="cherry"></div>
-        <div class="cherry"></div>
-
-        <div class="layer layer1"></div>
-        <div class="layer layer2"></div>
-        <div class="layer layer3"></div>
+        <button class="btn" onclick="nextPage(3)">Read my letter 💌</button>
     </div>
 
-    <button onclick="location.href='message.html'">
-        Read My Message ❤️
-    </button>
-</div>
-
-</body>
-</html>
+    <style>
+        @keyframes flicker { from { opacity: 0.8; transform: scale(1); } to { opacity: 1; transform: scale(1.1); } }
+    </style>
