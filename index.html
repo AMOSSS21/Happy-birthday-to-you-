@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday My Love</title>
 <style>
-    /* GLOBAL STYLES */
     body, html {
         margin: 0; padding: 0; height: 100%; width: 100%;
         font-family: 'Segoe UI', sans-serif;
-        background-color: #f8bfc9; /* Same Pink Background */
+        background-color: #f8bfc9; /* Constant Pink Background */
         overflow: hidden; color: #333;
     }
-
-    /* PAGE SYSTEM */
     .page {
         position: absolute; width: 100%; height: 100%;
         display: none; flex-direction: column;
@@ -21,18 +19,20 @@
     }
     .active { display: flex; }
 
-    /* HEART RAIN EFFECT */
-    .heart-drop {
+    /* Raining Hearts Effect */
+    .heart-rain {
         position: absolute; color: #ff4d6d;
         font-size: 20px; user-select: none;
         pointer-events: none; animation: fall linear forwards;
+        z-index: 1;
     }
     @keyframes fall { to { transform: translateY(110vh); } }
 
-    /* PAGE 1 SPECIFIC: BIG HEART */
+    /* Page 1: Big Heart pulse */
     .big-heart {
-        font-size: 120px; color: #e91e63;
-        animation: pulse 1.5s infinite; margin-bottom: 20px;
+        font-size: 140px; color: #e91e63;
+        animation: pulse 1.5s infinite;
+        margin-bottom: 20px;
     }
     @keyframes pulse {
         0% { transform: scale(1); }
@@ -41,10 +41,10 @@
     }
 
     .btn {
-        margin-top: 30px; padding: 12px 30px;
+        margin-top: 30px; padding: 12px 35px;
         background-color: #c2185b; color: white;
         border: none; border-radius: 25px; cursor: pointer;
-        font-size: 1rem; z-index: 100;
+        font-size: 1.1rem; z-index: 10;
     }
 </style>
 </head>
@@ -52,28 +52,10 @@
 
     <div id="page1" class="page active">
         <div class="big-heart">❤️</div>
-        <h1 style="color: #c2185b;">Happy Birthday to you, my love!</h1>
+        <h1 style="color: #c2185b;">Happy Birthday to you my love!</h1>
         <p style="font-style: italic; max-width: 80%;">
-            Today is a special day, and I wanted to make something just for you. 
-            You mean the world to me.
+            Today is a special day because it's your day. <br>
+            You are the most beautiful part of my world.
         </p>
-        <button class="btn" onclick="nextPage(2)">Click to see your cake 🎂</button>
+        <button class="btn" onclick="nextPage(2)">Open My Gift 🎁</button>
     </div>
-
-    <script>
-        function nextPage(num) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById('page' + num).classList.add('active');
-        }
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart-drop');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 5000);
-        }
-        setInterval(createHeart, 300);
-    </script>
