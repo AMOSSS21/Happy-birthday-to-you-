@@ -81,6 +81,49 @@ html, body {
 }
 .nav.prev { left: 20px; }
 .nav.next { right: 20px; }
+
+    /* Balloons */
+.balloon {
+    position: fixed;
+    width: 55px;
+    height: 70px;
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    left: 50%;
+    top: 70px;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Balloon Colors */
+.pink { background:#ff6f91; }
+.white { background:#ffffff; }
+.red { background:#ff4d6d; }
+.soft { background:#ffc2d1; }
+
+/* Left Side Balloons */
+.left1 { left:30px; top:120px; }
+.left2 { left:70px; top:200px; animation-delay:0.5s; }
+.left3 { left:40px; top:300px; animation-delay:1s; }
+
+/* Right Side Balloons */
+.right1 { right:30px; top:140px; }
+.right2 { right:70px; top:230px; animation-delay:0.5s; }
+.right3 { right:40px; top:320px; animation-delay:1s; }
+
 </style>
 </head>
 
@@ -149,6 +192,7 @@ for(let i=0;i<35;i++){
 
 </body>
 </html>
+
 
 
 
