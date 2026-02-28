@@ -51,7 +51,19 @@ html, body {
 @keyframes fall {
     to { transform: translateY(110vh); opacity: 0; }
 }
+/* Butterfly Styles with movement */
+.butterfly {
+    position: fixed;
+    font-size: 20px;
+    z-index: 1;
+    pointer-events: none;
+    animation: flutter-drift 6s linear forwards;
+}
 
+@keyframes flutter-drift {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(30deg); opacity: 0; }
+}
 .nav {
     position: fixed;
     bottom: 20px;
@@ -98,49 +110,29 @@ function createHeart() {
     setTimeout(() => { heart.remove(); }, 5000);
 }
 setInterval(createHeart, 300);
-// Create Butterflies function createButterfly() {
-
-const b =
-
-document.createElement("div");
-
-b.innerHTML = "":
-
-b.classList.add("butterfly");
-
-// Random positioning
-
-b.style.left = Math.random()
-
-*
-
-100
-
-+ "vw";
-
-b.style.top = Math.random() *
-
-80
-
-+
-
-"vh":
-
-document.body.appendChild(b);
-
-// Remove butterfly after a bit to keep page performance smooth setTimeout(() => { b.remove(); }, 6000);
-
+// Butterfly Logic
+function createButterfly() {
+    const b = document.createElement("div");
+    b.innerHTML = "🦋";
+    b.classList.add("butterfly");
+    b.style.left = Math.random() * 100 + "vw";
+    b.style.bottom = "-20px";
+    document.body.appendChild(b);
+    setTimeout(() => { b.remove(); }, 6000);
 }
 
-// Generate 7 butterflies initially for(let i = 0; i < 7; i++) { setTimeout(createButterfly, i * 800);
-
+// Generate initial butterflies
+for(let i = 0; i < 7; i++) {
+    setTimeout(createButterfly, i * 800);
 }
 
-// Keep a constant flow of butterflies setInterval(createButterfly, 4000);
+// Keep the flow going
+setInterval(createButterfly, 4000);
 </script>
 
 </body>
 </html>
+
 
 
 
