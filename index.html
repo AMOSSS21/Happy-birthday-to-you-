@@ -6,77 +6,44 @@
 
 <style>
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f8bfc9;
-    overflow: hidden;
-    font-family: 'Segoe UI', sans-serif;
-    color: #c2185b;
-    text-align: center;
+    margin: 0; padding: 0; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    background: #f8bfc9; overflow: hidden;
+    font-family: 'Segoe UI', sans-serif; color: #c2185b; text-align: center;
 }
 
-.heart {
-    position: absolute;
-    font-size: 140px;
-    color: #ff4d6d;
-    animation: pulse 1.5s infinite;
-}
+.heart { position: absolute; font-size: 140px; color: #ff4d6d; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-.message {
-    position: relative;
-    max-width: 600px;
-    font-size: 20px;
-    line-height: 1.6;
-    z-index: 2;
-}
+.message { position: relative; max-width: 600px; font-size: 20px; line-height: 1.6; z-index: 2; }
 
 .falling-heart {
-    position: fixed;
-    top: -10px;
-    font-size: 18px;
-    animation: fall linear forwards;
-    color: #ff4d6d;
+    position: fixed; top: -10px; font-size: 18px;
+    animation: fall linear forwards; color: #ff4d6d; z-index: 1;
 }
+@keyframes fall { to { transform: translateY(110vh); opacity: 0; } }
 
-@keyframes fall {
-    to { transform: translateY(110vh); opacity: 0; }
-}
-/* Butterfly Styles with movement */
+/* Butterfly Styles */
 .butterfly {
     position: fixed;
-    font-size: 20px;
     z-index: 1;
     pointer-events: none;
-    animation: flutter-drift 6s linear forwards;
+    animation: flutter-move 4s ease-in-out forwards;
+    opacity: 0;
 }
 
-@keyframes flutter-drift {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-100vh) rotate(30deg); opacity: 0; }
+@keyframes flutter-move {
+    0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    20% { opacity: 1; }
+    80% { opacity: 1; transform: scale(1.5) rotate(20deg); }
+    100% { opacity: 0; transform: scale(1.5) rotate(-20deg); }
 }
+
 .nav {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 18px;
-    background: #c2185b;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
+    position: fixed; bottom: 20px; right: 20px;
+    font-size: 18px; background: #c2185b; color: white;
+    padding: 10px 15px; border-radius: 8px; text-decoration: none; z-index: 3;
 }
-    <a class="nav" href="page2.html">Next 🎂</a>
-
 </style>
 </head>
 
@@ -97,6 +64,7 @@ Today is about celebrating you and the beautiful soul you are ✨
 <a class="nav" href="page2.html">Next 🎂</a>
     
 <script>
+// Falling Hearts
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("falling-heart");
@@ -104,39 +72,35 @@ function createHeart() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
     heart.style.fontSize = (Math.random() * 10 + 12) + "px";
-
     document.body.appendChild(heart);
-
     setTimeout(() => { heart.remove(); }, 5000);
 }
 setInterval(createHeart, 300);
-// Butterfly Logic
+
+// Butterflies
 function createButterfly() {
     const b = document.createElement("div");
     b.innerHTML = "🦋";
     b.classList.add("butterfly");
-    b.style.left = Math.random() * 100 + "vw";
-    b.style.bottom = "-20px";
+    
+    // Larger size
+    b.style.fontSize = (Math.random() * 20 + 30) + "px"; 
+    // Random position anywhere
+    b.style.left = Math.random() * 90 + "vw";
+    b.style.top = Math.random() * 90 + "vh";
+    
     document.body.appendChild(b);
-    setTimeout(() => { b.remove(); }, 6000);
+    setTimeout(() => { b.remove(); }, 4000);
 }
 
-// Generate initial butterflies
-for(let i = 0; i < 7; i++) {
-    setTimeout(createButterfly, i * 800);
+// Spawn 8 butterflies initially
+for(let i = 0; i < 8; i++) {
+    setTimeout(createButterfly, i * 500);
 }
 
-// Keep the flow going
-setInterval(createButterfly, 4000);
+// Keep spawning them randomly
+setInterval(createButterfly, 3000);
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
