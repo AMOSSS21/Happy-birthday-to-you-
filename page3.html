@@ -6,61 +6,42 @@
 
 <style>
 html, body {
-    margin:0;
-    padding:0;
-    height:100%;
-    font-family:'Segoe UI',sans-serif;
-    background:#f8bfc9;
-    text-align:center;
-    display:block;        /* allow scrolling */
-    overflow-y: auto;     /* vertical scroll if needed */
+    margin:0; padding:0; height:100%; font-family:'Segoe UI',sans-serif;
+    background:#f8bfc9; text-align:center; display:block; overflow-y: auto;
 }
 
 .message {
-    max-width:720px;
-    font-size:18px;
-    color:#c2185b;
-    line-height:1.7;
-    padding:30px;
-    margin: 0 auto;       /* center horizontally */
-}
-
-}
-
-.message {
-    max-width:720px;
-    font-size:18px;
-    color:#c2185b;
-    line-height:1.7;
-    padding:30px;
+    max-width:720px; font-size:18px; color:#c2185b; line-height:1.7;
+    padding:30px; margin: 0 auto;
 }
 
 /* Falling hearts */
 .heart {
-    position: fixed;
-    top: -10px;
-    font-size: 20px;
-    animation: fall linear forwards;
-    color: #ff4d6d;
+    position: fixed; top: -10px; font-size: 20px;
+    animation: fall linear forwards; color: #ff4d6d; z-index: 1;
+}
+@keyframes fall { to { transform: translateY(110vh); opacity: 0; } }
+
+/* Butterfly Styles */
+.butterfly {
+    position: fixed; z-index: 10; pointer-events: none;
+    animation: flutter-move 4s ease-in-out forwards; opacity: 0;
+}
+@keyframes flutter-move {
+    0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    20% { opacity: 1; }
+    80% { opacity: 1; transform: scale(1.5) rotate(20deg); }
+    100% { opacity: 0; transform: scale(1.5) rotate(-20deg); }
 }
 
-@keyframes fall {
-    to {
-        transform: translateY(110vh);
-        opacity: 0;
-    }
-}
+/* Timer Styling */
+#love-timer { font-size: 1.2em; font-weight: bold; margin-top: 20px; color: #880e4f; }
 
 /* Navigation Button */
 .nav {
-    position: fixed;
-    bottom: 20px;
-    font-size: 18px;
-    background: #c2185b;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
+    position: fixed; bottom: 20px; font-size: 18px;
+    background: #c2185b; color: white; padding: 10px 15px;
+    border-radius: 8px; text-decoration: none; z-index: 100;
 }
 .nav.prev { left: 20px; }
 .nav.next { right: 20px; }
@@ -78,7 +59,7 @@ You are someone incredibly special to me, someone who has quietly become such an
 Your smile, your presence, your energy they have a way of making everything feel lighter, brighter, and more beautiful.  
 You bring a kind of happiness that’s rare, genuine, and deeply felt.<br><br>
 
-On your special day, I just want to wish you endless happiness, peace, success, and everything your heart desires.  
+On your special day, I just want you to wish you endless happiness, peace, success, and everything your heart desires.  
 May your life always be filled with love, laughter, and moments that make you truly happy.<br><br>
 
 Thank you for being you. Thank you for existing the way you do.  
@@ -90,10 +71,10 @@ And no matter what, I will always love you with all my heart and forever ❤️<
 And in the most selfish yet honest way, I wish to continue being by your side, always a part of your life ❤️<br><br>
 
 Hope you like it 😌💖
-I LOVE YOU AND WILL ALWAYS BE LOVING YOU 💖    
+I LOVE YOU AND WILL ALWAYS BE LOVING YOU 💖<br><br>
+<div id="love-timer">Loving you for eternity...</div>
 </div>
 
-<!-- Navigation -->
 <a class="nav prev" href="page2.html">Prev 🎂</a>
 <a class="nav next" href="index.html">Back ❤️</a>
 
@@ -106,18 +87,27 @@ function createHeart() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
     heart.style.fontSize = (Math.random() * 10 + 15) + "px";
-
     document.body.appendChild(heart);
-
     setTimeout(() => { heart.remove(); }, 5000);
 }
-
 setInterval(createHeart, 300);
+
+// Butterfly Animation
+function createButterfly() {
+    const b = document.createElement("div");
+    b.innerHTML = "🦋";
+    b.classList.add("butterfly");
+    b.style.fontSize = (Math.random() * 20 + 30) + "px"; 
+    b.style.left = Math.random() * 90 + "vw";
+    b.style.top = Math.random() * 80 + "vh";
+    document.body.appendChild(b);
+    setTimeout(() => { b.remove(); }, 4000);
+}
+for(let i = 0; i < 8; i++) {
+    setTimeout(createButterfly, i * 500);
+}
+setInterval(createButterfly, 3000);
 </script>
 
 </body>
 </html>
-
-
-
-
